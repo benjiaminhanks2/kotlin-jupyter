@@ -61,6 +61,8 @@ data class RuntimeKernelProperties(val map: Map<String, String>) {
         get() = map["librariesFormatVersion"]?.toIntOrNull() ?: throw RuntimeException("Libraries format version is not specified!")
     val currentBranch: String
         get() = map["currentBranch"] ?: throw RuntimeException("Current branch is not specified!")
+    val jvmTargetForSnippets: String
+        get() = map["jvmTargetForSnippets"] ?: "1.8"
 }
 
 val runtimeProperties by lazy {

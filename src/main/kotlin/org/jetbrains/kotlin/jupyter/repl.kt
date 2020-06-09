@@ -204,9 +204,9 @@ class ReplForJupyterImpl(val scriptClasspath: List<File> = emptyList(),
 
             val receiversTypes = receivers.map { KotlinType(it.javaClass.canonicalName) }
             implicitReceivers(receiversTypes)
-            skipExtensionsResolutionForImplicitsExceptInnermost(receiversTypes)
+            // skipExtensionsResolutionForImplicitsExceptInnermost(receiversTypes)
 
-            compilerOptions(listOf("-jvm-target", "1.8"))
+            compilerOptions(listOf("-jvm-target", runtimeProperties.jvmTargetForSnippets))
         }
     }
 
